@@ -1,4 +1,3 @@
-D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\MainEmployee.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\MovieTicketBookingSystem.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\function\ImageUtil.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\function\Management.java
@@ -7,7 +6,6 @@ D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\moviet
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\function\ActivateMovie.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\model\SeatModel.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\function\UploadMovie.java
-D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\RegisterPanel.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\model\Person.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\model\MovieModel.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\function\Information.java
@@ -21,7 +19,6 @@ D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\moviet
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\model\OrderFoodModel.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\function\AddMovie.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\MainAdmin.java
-D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\MainCustomer.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\data\DataConnection.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\function\AvailableMovie.java
 D:\project java\MovieTicketBookingSystem\src\main\java\com\forestcineplex\movieticketbookingsystem\view\panel\function\ChooseSeat.java

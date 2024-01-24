@@ -5,7 +5,6 @@
 package com.forestcineplex.movieticketbookingsystem.view.frame;
 
 import com.forestcineplex.movieticketbookingsystem.view.panel.LoginPanel;
-import com.forestcineplex.movieticketbookingsystem.view.panel.RegisterPanel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Image;

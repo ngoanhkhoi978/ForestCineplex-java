@@ -1,6 +1,5 @@
 com\forestcineplex\movieticketbookingsystem\model\AvailableMovieModel.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\ActivateMovie.class
-com\forestcineplex\movieticketbookingsystem\view\panel\RegisterPanel$3.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AddUser$4.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AvailableMovie$2.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\FoodOrder$7.class
@@ -21,7 +20,6 @@ com\forestcineplex\movieticketbookingsystem\view\panel\function\Management$5.cla
 com\forestcineplex\movieticketbookingsystem\view\panel\LobbyPanel.class
 com\forestcineplex\movieticketbookingsystem\view\frame\LobbySystem$1.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\UploadMovie$2.class
-com\forestcineplex\movieticketbookingsystem\view\panel\MainCustomer$1.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AvailableMovie$1.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AvailableMovie$7.class
 com\forestcineplex\movieticketbookingsystem\MovieTicketBookingSystem.class
@@ -39,13 +37,11 @@ com\forestcineplex\movieticketbookingsystem\view\panel\function\EditUser$6.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\FoodOrder$5.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\Management$6.class
 com\forestcineplex\movieticketbookingsystem\view\panel\LoginPanel$2.class
-com\forestcineplex\movieticketbookingsystem\view\panel\RegisterPanel$1.class
 com\forestcineplex\movieticketbookingsystem\model\OrderFoodModel.class
 com\forestcineplex\movieticketbookingsystem\model\User.class
 com\forestcineplex\movieticketbookingsystem\view\panel\LoginPanel.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AvailableMovie$6.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\FoodOrder$3.class
-com\forestcineplex\movieticketbookingsystem\view\panel\MainCustomer.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AddMovie$1.class
 com\forestcineplex\movieticketbookingsystem\view\panel\MainAdmin$6.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\ActivateMovie$1.class
@@ -53,12 +49,10 @@ com\forestcineplex\movieticketbookingsystem\view\panel\function\AddUser.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\ImageUtil.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\EditUser$2.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\FoodOrder$6.class
-com\forestcineplex\movieticketbookingsystem\view\panel\MainEmployee.class
 com\forestcineplex\movieticketbookingsystem\model\MovieModel.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\Management$7.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AddMovie$4.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AddMovie.class
-com\forestcineplex\movieticketbookingsystem\view\panel\RegisterPanel$2.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AddUser$5.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\EditUser$5.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\ChooseSeat$3.class
@@ -88,8 +82,6 @@ com\forestcineplex\movieticketbookingsystem\view\panel\function\EditUser$3.class
 com\forestcineplex\movieticketbookingsystem\view\panel\MainAdmin$2.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AvailableMovie$3.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\AddMovie$3.class
-com\forestcineplex\movieticketbookingsystem\view\panel\MainEmployee$1.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\FoodOrder$2.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\FoodOrder$8.class
-com\forestcineplex\movieticketbookingsystem\view\panel\RegisterPanel.class
 com\forestcineplex\movieticketbookingsystem\view\panel\function\Management$3.class

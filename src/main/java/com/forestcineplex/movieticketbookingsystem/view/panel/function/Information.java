@@ -44,6 +44,7 @@ public class Information extends javax.swing.JPanel {
                 String mail = resultSet.getString("Mail");
                 double salary = resultSet.getDouble("Salary");
                 this.user = new User(user1,passwordHash1,role,fullName,gender,salary,address,phone,mail,birthDate);
+                 
             } 
         } catch (SQLException e) {
             e.printStackTrace(); // Hoặc log lỗi
@@ -61,6 +62,22 @@ public class Information extends javax.swing.JPanel {
         jLabelPhone.setText(user.getPhone());
         jLabelMail.setText(user.getMail());
         jLabelAddress.setText(user.getAddress());
+        
+        String role = user.getRole();
+        String gender= user.getGender();
+        if (role.equalsIgnoreCase("ADMIN")) {
+                if (gender.equalsIgnoreCase("MALE")) {
+                    jLabelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin.png")));
+                } else {
+                    jLabelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/womenAdmin.png")));
+                }
+            } else {
+                if (gender.equalsIgnoreCase("MALE")) {
+                    jLabelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/man.png")));
+                } else {
+                    jLabelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/women.png")));
+                }
+            }
         
     }
     
@@ -85,7 +102,7 @@ public class Information extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelAvatar = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabelMail = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -112,8 +129,8 @@ public class Information extends javax.swing.JPanel {
         jLabel7.setText("Birth Date:");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        jLabelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin.png"))); // NOI18N
+        jPanel2.add(jLabelAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setText("User:");
@@ -178,7 +195,6 @@ public class Information extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -188,6 +204,7 @@ public class Information extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelAddress;
+    private javax.swing.JLabel jLabelAvatar;
     private javax.swing.JLabel jLabelBirthDate;
     private javax.swing.JLabel jLabelFullName;
     private javax.swing.JLabel jLabelGender;

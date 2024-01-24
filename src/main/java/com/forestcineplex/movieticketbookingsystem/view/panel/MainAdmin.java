@@ -203,8 +203,8 @@ public class MainAdmin extends javax.swing.JPanel {
 
         jButtonAddMovie.setBackground(new java.awt.Color(83, 173, 116));
         jButtonAddMovie.setFont(new java.awt.Font("Bell MT", 0, 18)); // NOI18N
-        jButtonAddMovie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plus.png"))); // NOI18N
-        jButtonAddMovie.setText("Add Movie");
+        jButtonAddMovie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drive.png"))); // NOI18N
+        jButtonAddMovie.setText("Edit Screening");
         jButtonAddMovie.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButtonAddMovie.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButtonAddMovie.setMargin(new java.awt.Insets(2, 30, 3, 14));

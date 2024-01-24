@@ -154,6 +154,7 @@ public class AddMovie extends javax.swing.JPanel {
     }
 
     public void SetDefault() {
+        jTextFieldFind.setText("");
         jLabelSuccess.setVisible(false);
         jLabelName.setText("");
         jLabelDuration.setText("");
@@ -456,6 +457,7 @@ public class AddMovie extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        //SetDefault();
         jLabelMess.setVisible(false);
         jLabelSuccess.setVisible(false);
         displayUploadMovie();

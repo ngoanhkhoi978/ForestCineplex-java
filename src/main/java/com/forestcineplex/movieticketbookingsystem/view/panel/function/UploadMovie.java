@@ -140,6 +140,7 @@ public class UploadMovie extends javax.swing.JPanel {
         add(movieModel);
         
         jLabelSuccess.setVisible(true);
+        addMovie.SetDefault();
         
         
            

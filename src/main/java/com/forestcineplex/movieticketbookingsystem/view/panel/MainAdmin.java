@@ -6,10 +6,15 @@ package com.forestcineplex.movieticketbookingsystem.view.panel;
 
 import com.forestcineplex.movieticketbookingsystem.data.DataConnection;
 import com.forestcineplex.movieticketbookingsystem.model.User;
+import com.forestcineplex.movieticketbookingsystem.view.frame.LobbySystem;
 import com.forestcineplex.movieticketbookingsystem.view.frame.MainSystem;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.mysql.cj.jdbc.exceptions.CommunicationsException;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import javax.swing.UIManager;
 import org.mindrot.jbcrypt.BCrypt;
 
 /**
@@ -286,7 +291,15 @@ public class MainAdmin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        System.exit(0);
+
+        try {
+            UIManager.setLookAndFeel( new FlatLightLaf() );
+            LobbySystem lobbySystem = new LobbySystem();
+            mainSystem.dispose();
+        } catch ( Exception e) {
+            e.printStackTrace();
+            
+        }
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButtonWelcomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWelcomeActionPerformed

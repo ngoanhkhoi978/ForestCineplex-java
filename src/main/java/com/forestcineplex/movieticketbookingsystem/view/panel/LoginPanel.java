@@ -38,8 +38,8 @@ public class LoginPanel extends javax.swing.JPanel {
     }
     
     public void login(String role) {
-        this.lobbySystem.setVisible(false);
         MainSystem mainSystem = new MainSystem(user);
+        this.lobbySystem.dispose();
     }
     
 

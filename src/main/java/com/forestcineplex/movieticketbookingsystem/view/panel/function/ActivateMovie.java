@@ -1,0 +1,305 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package com.forestcineplex.movieticketbookingsystem.view.panel.function;
+
+import com.forestcineplex.movieticketbookingsystem.data.DataConnection;
+import com.forestcineplex.movieticketbookingsystem.model.MovieModel;
+import java.awt.Color;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+import javax.swing.border.LineBorder;
+
+/**
+ *
+ * @author LENOVO
+ */
+public class ActivateMovie extends javax.swing.JPanel {
+    /**
+     * Creates new form ActivateMovie
+     */
+    
+    private MovieModel movieModel;
+    private AddMovie addMovie;
+    private LineBorder error = new LineBorder(Color.RED);
+    private LineBorder ddefault = new LineBorder(Color.LIGHT_GRAY);
+    
+    public void loadMovieModel() {
+        this.movieModel = addMovie.getMovieModel();
+    }
+    
+    public String TimeFormat(long duration) {
+        return TimeUnit.MILLISECONDS.toHours(duration)+"h"+TimeUnit.MILLISECONDS.toMinutes(duration)%60+"m";
+    }
+    
+    public void setDefaultBorder() {
+
+        this.jTextFieldMinutes.setBorder(ddefault);
+        this.jTextFieldHour.setBorder(ddefault);
+        this.jDateChooser.setBorder(ddefault);
+    }
+    
+    public void setDefault() {
+        setDefaultBorder();
+        this.jLabelMess.setText("");
+        this.jLabelSuccess.setVisible(false);
+    }
+    
+    public void display() {
+        this.jLabelName.setText(movieModel.getName());
+        this.jLabelPrice.setText(movieModel.getPrice()+"");
+        this.jLabelDuration.setText(TimeFormat(movieModel.getDuration()));
+        this.jLabelPoster.setIcon(movieModel.getImage());
+        this.jTextPaneDescribe.setText(movieModel.getDescribe());
+    }
+    
+    public ActivateMovie(AddMovie addMovie) {
+        this.addMovie = addMovie;
+        initComponents();
+    }
+    
+    public boolean checkDate(Date date) {
+        Date currentDate = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        currentDate = calendar.getTime();
+        int comparisonResult = date.compareTo(currentDate);
+        if (comparisonResult>=0)
+            return true;
+        return false;
+        
+    }
+    public void check() {
+        Date date = jDateChooser.getDate();
+        
+        if (date == null) {
+            jLabelMess.setText("Date cannot be empty");
+            jDateChooser.setBorder(error);
+            return;
+        }
+        
+        if (checkDate(date) == false) {
+            jLabelMess.setText("Date must be greater than or equal to the current date");
+            jDateChooser.setBorder(error);
+            return;
+        }
+        int hour = 0;
+        int minutes = 0;
+        try {
+            hour = Integer.valueOf(jTextFieldHour.getText());
+            if (hour<0 || hour>24) {
+                jLabelMess.setText("Invalid Hour");
+                jTextFieldHour.setBorder(error);
+                return;
+            }
+        } catch (Exception e) {
+            jLabelMess.setText("Invalid Hour");
+            jTextFieldHour.setBorder(error);
+            return;
+        }
+        
+        try {
+            minutes = Integer.valueOf(jTextFieldMinutes.getText());
+            if (minutes<0 || minutes>60) {
+                jLabelMess.setText("Invalid Minutes");
+                jTextFieldMinutes.setBorder(error);
+                return;
+            }
+        } catch (Exception e) {
+            jLabelMess.setText("Invalid Minutes");
+            jTextFieldMinutes.setBorder(error);
+            return;
+        }
+        
+        addMovie.disposeActivateMovie();
+        addMovie.displaySuccess();
+        
+        int IDMMD = movieModel.getID();
+        String seats = "00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+        Timestamp time = convertToTimestamp(date, hour, minutes);
+        
+        String[] columns = {"ID_Movie","Seats","Time"};
+        Object[] values = {IDMMD,seats,time};
+        DataConnection.insertData("availablemovie", columns, values);
+        
+        
+    }
+    
+    public Timestamp convertToTimestamp(Date date, int hour, int minutes) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, minutes);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        return new Timestamp(calendar.getTimeInMillis());
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jLabelPoster = new javax.swing.JLabel();
+        jLabelPrice = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabelSuccess = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jDateChooser = new com.toedter.calendar.JDateChooser();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldMinutes = new javax.swing.JTextField();
+        jTextFieldHour = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabelName = new javax.swing.JLabel();
+        jLabelDuration = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPaneDescribe = new javax.swing.JTextPane();
+        jLabelMess = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(700, 450));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/empty.jpg"))); // NOI18N
+        add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jLabelPrice.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelPrice.setText("aaaaaaaa");
+        add(jLabelPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setText("Price:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(204, 255, 204));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/success.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 70, 40));
+
+        jButton3.setBackground(new java.awt.Color(255, 204, 204));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/remove.png"))); // NOI18N
+        jButton3.setToolTipText("Remove");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 70, 40));
+
+        jLabelSuccess.setBackground(new java.awt.Color(51, 255, 51));
+        jLabelSuccess.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelSuccess.setForeground(new java.awt.Color(0, 204, 0));
+        jLabelSuccess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelSuccess.setText("Success");
+        jLabelSuccess.setVisible(false);
+        add(jLabelSuccess, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 340, 690, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setText("Duration:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+
+        jDateChooser.getDateEditor().setEnabled(false);
+        add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 190, 30));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setText("Describe:");
+        jLabel7.setToolTipText("");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
+
+        jTextFieldMinutes.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        add(jTextFieldMinutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 40, 30));
+
+        jTextFieldHour.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        add(jTextFieldHour, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 40, 30));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setText("Time:");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText(":");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 70, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setText("Name:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
+
+        jLabelName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelName.setText("aaaaa");
+        add(jLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+
+        jLabelDuration.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelDuration.setText("aaaaa");
+        add(jLabelDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setText("Date:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
+
+        jTextPaneDescribe.setEditable(false);
+        jTextPaneDescribe.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextPaneDescribe.setText("aaaaa");
+        jScrollPane2.setViewportView(jTextPaneDescribe);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 340, 100));
+
+        jLabelMess.setBackground(new java.awt.Color(51, 255, 51));
+        jLabelMess.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelMess.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelMess.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMess.setText("Errorr");
+        add(jLabelMess, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 340, 690, -1));
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        setDefault();
+        check();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        addMovie.displayActivateMovie();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JDateChooser jDateChooser;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelDuration;
+    private javax.swing.JLabel jLabelMess;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelPoster;
+    private javax.swing.JLabel jLabelPrice;
+    private javax.swing.JLabel jLabelSuccess;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextFieldHour;
+    private javax.swing.JTextField jTextFieldMinutes;
+    private javax.swing.JTextPane jTextPaneDescribe;
+    // End of variables declaration//GEN-END:variables
+}
